@@ -10,6 +10,9 @@ import { SkelatonLoader, Loader } from "./Loader";
 import Error from "./Error";
 import ThemeMenu from "./ThemeMenu";
 import Section from "./Section";
+import WatchlistButton from "./WatchlistButton";
+import WatchlistBadge from "./WatchlistBadge";
+import EmptyWatchlistState from "./EmptyWatchlistState";
 
 export {
   Footer,
@@ -25,4 +28,7 @@ export {
   Error,
   ThemeMenu,
   Section,
+  WatchlistButton,
+  WatchlistBadge,
+  EmptyWatchlistState,
 };

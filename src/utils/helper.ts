@@ -29,6 +29,27 @@ export const getTheme = () => {
   return theme ? theme : "";
 };
 
+// Watchlist localStorage helpers
+const WATCHLIST_KEY = "movie-app-watchlist";
+
+export const saveWatchlist = (watchlist: any[]): void => {
+  try {
+    localStorage.setItem(WATCHLIST_KEY, JSON.stringify(watchlist));
+  } catch (error) {
+    console.error("Failed to save watchlist:", error);
+  }
+};
+
+export const getWatchlist = (): any[] => {
+  try {
+    const watchlist = localStorage.getItem(WATCHLIST_KEY);
+    return watchlist ? JSON.parse(watchlist) : [];
+  } catch (error) {
+    console.error("Failed to load watchlist:", error);
+    return [];
+  }
+};
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }

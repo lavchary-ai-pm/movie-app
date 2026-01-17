@@ -6,7 +6,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { FiSun } from "react-icons/fi";
 import throttle from "lodash.throttle";
 
-import { ThemeMenu, Logo } from "..";
+import { ThemeMenu, Logo, WatchlistBadge } from "..";
 import HeaderNavItem from "./HeaderNavItem";
 
 import { useGlobalContext } from "@/context/globalContext";
@@ -82,12 +82,14 @@ const Header = () => {
           <ul className="flex flex-row gap-8 capitalize text-[14.75px] font-medium">
             {navLinks.map((link: { title: string; path: string }) => {
               return (
-                <HeaderNavItem
-                  key={link.title}
-                  link={link}
-                  isNotFoundPage={isNotFoundPage}
-                  showBg={isActive}
-                />
+                <li key={link.title} className="relative">
+                  <HeaderNavItem
+                    link={link}
+                    isNotFoundPage={isNotFoundPage}
+                    showBg={isActive}
+                  />
+                  {link.title === "watchlist" && <WatchlistBadge />}
+                </li>
               );
             })}
           </ul>
